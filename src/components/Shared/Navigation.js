@@ -9,7 +9,7 @@ const Navigation = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="#home"><img src="/logo.png" alt="log" /></Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/home#home"><img src="/logo.png" alt="log" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto fw-bold text-uppercase">
@@ -35,11 +35,8 @@ const Navigation = () => {
                                     <Link to="/login"><Button variant="light">Log In</Button></Link>
                             }
                             {
-                                !user.email && <Link to="/register" ><Button variant="primary">Register</Button></Link>
+                                !user.email && <Link to="/register" ><Button className="ms-3" variant="primary">Register</Button></Link>
                             }
-
-
-                            
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

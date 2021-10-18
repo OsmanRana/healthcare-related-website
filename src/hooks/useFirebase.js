@@ -99,9 +99,14 @@ const useFirebase = () => {
     //Forget password
     const resetPassword = () => {
         sendPasswordResetEmail(auth, email)
-            .then(() => {
-
-            });
+        .then(() => {
+        
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            setError(errorMessage)
+          })
+            handlePasswordChangeMassege();
     }
 
     useEffect(() => {
@@ -135,6 +140,15 @@ const useFirebase = () => {
             alert("An Email varification mail sent, please varify your email address!!!");
         }
         
+    }
+    const handlePasswordChangeMassege = () => {
+        if (!error) {
+            return;
+        }
+        else {
+            alert("A password reset mail sent, please check your email !!!");
+        }
+            
     }
 
     return {
