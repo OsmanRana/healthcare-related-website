@@ -1,13 +1,15 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 const Navigation = () => {
+    const { user, logOut } = useAuth();
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="#home"><img src="/logo.png" alt="log"/></Navbar.Brand>
+                    <Navbar.Brand href="#home"><img src="/logo.png" alt="log" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto fw-bold text-uppercase">
@@ -22,8 +24,12 @@ const Navigation = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
+                            {
+                                user.email ? <Button onClick={logOut} variant="light">Log Out</Button> :
                             <Link to="/login"><Button variant="light">Log In</Button></Link>
-                            <Button variant="light">Log Out</Button>
+                            }
+
+
                             <Link to="/register" ><Button variant="primary">Register</Button></Link>
                         </Nav>
                     </Navbar.Collapse>

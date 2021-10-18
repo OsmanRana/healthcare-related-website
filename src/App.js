@@ -7,10 +7,12 @@ import LogIn from './components/Login/LogIn';
 import Header from './components/Shared/Header';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import Register from './components/Register/Register';
+import AuthProvider from './authProvider/AuthProvider';
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <Router>
         <Header></Header>
         <Switch>
@@ -34,6 +36,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      </AuthProvider>
 
     </div>
   );
