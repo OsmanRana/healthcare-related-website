@@ -25,12 +25,21 @@ const Navigation = () => {
                         </Nav>
                         <Nav>
                             {
+                                user.displayName && <p className="my-auto mx-3">{user.displayName}</p>
+                            }
+                            {
+                                user.photoURL && <img style={{width:'35px', height:'35px'}} src={user.photoURL} alt ="User"/>
+                            }
+                            {
                                 user.email ? <Button onClick={logOut} variant="light">Log Out</Button> :
-                            <Link to="/login"><Button variant="light">Log In</Button></Link>
+                                    <Link to="/login"><Button variant="light">Log In</Button></Link>
+                            }
+                            {
+                                !user.email && <Link to="/register" ><Button variant="primary">Register</Button></Link>
                             }
 
 
-                            <Link to="/register" ><Button variant="primary">Register</Button></Link>
+                            
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
