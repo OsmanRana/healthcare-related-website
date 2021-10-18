@@ -1,12 +1,13 @@
 import React from 'react';
 import Banner from './Banner';
-import Navbar from './Navigation';
+import Navigation from './Navigation';
+
 
 const Header = () => {
     return (
         <div>
-            <Navbar></Navbar>
-            <Banner></Banner>
+            <Navigation></Navigation>
+            
         </div>
     );
 };

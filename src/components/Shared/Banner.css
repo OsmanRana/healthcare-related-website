@@ -1,0 +1,11 @@
+
+@media  screen and (max-width: 1024px) {
+    .carousel img {
+        height: 325px;
+    }
+}
+@media  screen and (min-width: 1025px) {
+    .carousel img {
+        height: 650px;
+    }
+}
