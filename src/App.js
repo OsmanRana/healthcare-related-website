@@ -6,6 +6,7 @@ import Home from './components/Home/Home';
 import LogIn from './components/Login/LogIn';
 import Header from './components/Shared/Header';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import Register from './components/Register/Register';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path='/login'>
             <LogIn></LogIn>
+          </Route>
+          <Route path='/register'>
+            <Register></Register>
           </Route>
           <Route path="*">
             <PageNotFound></PageNotFound>

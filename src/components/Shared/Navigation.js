@@ -22,7 +22,9 @@ const Navigation = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Link to="/login"><Button variant="light">Log In</Button><Button to="/register" variant="primary">Register</Button></Link>
+                            <Link to="/login"><Button variant="light">Log In</Button></Link>
+                            <Button variant="light">Log Out</Button>
+                            <Link to="/register" ><Button variant="primary">Register</Button></Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
