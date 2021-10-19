@@ -37,7 +37,8 @@ const Navigation = () => {
                                     <Link to="/login"><Button variant="light">Log In</Button></Link>
                             }
                             {
-                                !user.email || user.uid && <Link to="/register" ><Button className="ms-3" variant="primary">Register</Button></Link>
+                                !user.email && !user.uid ? <Link to="/register" ><Button className="ms-3" variant="primary">Register</Button></Link> :
+                                <span></span>
                             }
                         </Nav>
                     </Navbar.Collapse>
