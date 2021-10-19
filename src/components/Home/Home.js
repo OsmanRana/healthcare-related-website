@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useDoctors from '../../hooks/useDoctors';
 import DoctorsDetails from '../Doctors/DoctorsDetails';
-
-
 import Banner from './Banner';
 
 const Home = () => {
-    const [doctors, setDoctors] =useState([])
-    useEffect(()=>{
-        fetch('./doctors.json')
-        .then(res=>res.json())
-        .then(data=>setDoctors(data))
-    },[])
+   const [doctors] = useDoctors()
+    
     return (
         <>
             <Banner></Banner>
@@ -28,11 +23,11 @@ const Home = () => {
                 <div className="container border-bottom border-danger w-25 "></div>
                 <div  className="row row-cols-1 row-cols-sm-2 row-cols-md-4 my-5">
                     {
-                        doctors.map(doctor => <DoctorsDetails
+                        doctors?.map(doctor => <DoctorsDetails
                         key={doctor.id}
                         doctor={doctor}
                         />)
-                    }
+                    }                   
                     </div>
                 <div className="mt-5">
                     <h1 className="fw-bold text-dark">OUR SERVICES</h1>

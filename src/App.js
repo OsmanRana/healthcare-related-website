@@ -8,7 +8,8 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import Register from './components/Register/Register';
 import AuthProvider from './authProvider/AuthProvider';
 import Footer from './components/Shared/Footer';
-import DoctorsDetails from './components/Doctors/DoctorsDetails';
+import Experience from './components/Doctors/Experience';
+import Doctors from './components/Doctors/Doctors';
 
 function App() {
   return (
@@ -25,7 +26,10 @@ function App() {
                 <Home></Home>
               </Route>
               <Route path='/doctors'>
-                <DoctorsDetails></DoctorsDetails>
+                <Doctors></Doctors>
+              </Route>
+             <Route path='/doctorsdetail/:doctorId'>
+               <Experience></Experience>
               </Route>
               <Route path='/login'>
                 <LogIn></LogIn>

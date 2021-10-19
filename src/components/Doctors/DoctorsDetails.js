@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const DoctorsDetails = (props) => {
-    const { Name, image, specialty } = props.doctor
+    const { id, Name, image, specialty } = props.doctor
 
     return (
         <div>
@@ -13,11 +14,9 @@ const DoctorsDetails = (props) => {
                     <Card.Text>
                     {specialty}
                     </Card.Text>
-                    <Button className="mb-3" variant="primary">Experience</Button>
+                    <Link to={`/doctorsdetail/${id}`}><Button className="mb-3" variant="primary">Experience</Button></Link>
                 </Card.Body>
             </Card>
-            
-            
         </div>
     );
 };
