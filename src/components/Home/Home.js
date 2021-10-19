@@ -1,10 +1,13 @@
 import React from 'react';
 import useDoctors from '../../hooks/useDoctors';
+import useServices from '../../hooks/useServices';
 import DoctorsDetails from '../Doctors/DoctorsDetails';
+import Services from '../Services/Services';
 import Banner from './Banner';
 
 const Home = () => {
    const [doctors] = useDoctors()
+   const [services] = useServices()
     
     return (
         <>
@@ -29,10 +32,19 @@ const Home = () => {
                         />)
                     }                   
                     </div>
+                
                 <div className="mt-5">
                     <h1 className="fw-bold text-dark">OUR SERVICES</h1>
                 </div>
                 <div className="container border-bottom border-danger w-25 "></div>
+                <div  className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 my-5">
+                    {
+                        services?.map(service=> <Services
+                        key = {service.id}
+                        service = {service}
+                        />)
+                    }                   
+                    </div>
                 <div className="mt-5">
                     <h1 className="fw-bold text-dark">HOSPITAL DEPARTMENTS</h1>
                 </div>

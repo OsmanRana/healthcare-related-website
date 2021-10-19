@@ -9,7 +9,7 @@ const Experience = () => {
 
     const doctorIdValue = parseInt(doctorId)
     const found = doctors?.find(doctor => doctor.id === doctorIdValue)
-    console.log(found)
+
     return (
         <div className="container my-5">
 
