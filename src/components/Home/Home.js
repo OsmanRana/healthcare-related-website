@@ -21,7 +21,7 @@ const Home = () => {
                     <p className="text-muted">Our doctors are specialized in their field and have more than 10 years of experiences.</p> 
                 </div>
                 <div className="container border-bottom border-danger w-25 "></div>
-                <div  className="row row-cols-1 row-cols-sm-2 row-cols-md-4 my-5">
+                <div  className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 my-5">
                     {
                         doctors?.map(doctor => <DoctorsDetails
                         key={doctor.id}

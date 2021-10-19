@@ -1,10 +1,20 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory  } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
-    const { handleNameChange, handleEmailChange, handlePasswordChange, handleRegistration,handleGoogleSignIn, handleEmailVarificationMessage, error } = useAuth();
+    const { handleNameChange, handleEmailChange, handlePasswordChange, handleRegistration, handleGoogleSignIn, handleEmailVarificationMessage, error } = useAuth();
+    const location = useLocation();
+    const history = useHistory()
+    const redirect_uri = location.state?.from || '/home';
+
+    const handleGoogleLogIn = () => {
+        handleGoogleSignIn()
+            .then(result => {
+                history.push(redirect_uri)
+            })
+    }
     return (
         <div className="container mt-5">
             <h1 className="text-primary my-3">Please Register here</h1>
@@ -29,7 +39,7 @@ const Register = () => {
                 <p>Already registered? <Link to='/login'>Log In</Link></p>
             </Form>
             <p>OR</p>
-            <Button onClick={handleGoogleSignIn} variant="warning">Sign In with Google</Button>
+            <Button onClick={handleGoogleLogIn} variant="warning">Sign In with Google</Button>
         </div>
     );
 };
