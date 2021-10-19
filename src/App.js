@@ -13,6 +13,7 @@ import Doctors from './components/Doctors/Doctors';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ServicesDetails from './components/Services/ServiceDetails';
 import ServiceRead from './components/Services/ServiceRead';
+import Departments from './components/Depatments/Departments';
 // import Service from './components/Services/Service';
 
 function App() {
@@ -41,6 +42,9 @@ function App() {
              <PrivateRoute exact path='/servicedetail/:serviceId'>
                <ServiceRead></ServiceRead>
               </PrivateRoute>
+              <Route path='/departments'>
+                <Departments></Departments>
+              </Route>
               <Route path='/login'>
                 <LogIn></LogIn>
               </Route>

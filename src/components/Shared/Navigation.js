@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { HashLink } from 'react-router-hash-link';
@@ -18,12 +18,8 @@ const Navigation = () => {
                             <Nav.Link as={HashLink} to="/home#home">Home</Nav.Link>
                             <Nav.Link as={HashLink} to="/doctors#doctors">Doctors</Nav.Link>
                             <Nav.Link as={HashLink} to="/services#services">Services</Nav.Link>
-                            <NavDropdown title="Departments" id="collasible-nav-dropdown">
-                                <NavDropdown.Item as={HashLink} to="/departments#departments/cardiology">Cardiology</NavDropdown.Item>
-                                <NavDropdown.Item as={HashLink} to="/departments#departments/dental">Dental</NavDropdown.Item>
-                                <NavDropdown.Item as={HashLink} to="/departments#departments/neurologist">Nuerologist</NavDropdown.Item>
-                                <NavDropdown.Item as={HashLink} to="/departments#departments/pediatric">Pediatric</NavDropdown.Item>
-                            </NavDropdown>
+                            <Nav.Link as={HashLink} to="/departments#departments">Departments</Nav.Link>
+                            
                         </Nav>
                         <Nav>
                             {
