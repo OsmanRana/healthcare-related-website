@@ -10,28 +10,29 @@ const useFirebase = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [isLoading, setIsLoading] = useState(true)
     
     const googleProvider = new GoogleAuthProvider();
 
     const auth = getAuth();
 
     //Google Sign In
+
     const handleGoogleSignIn = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                const user = result.user;
-                setUser(user)
-            })
+        setIsLoading(true)
+        return signInWithPopup(auth, googleProvider)
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage)
-            });
+            })
+            .finally(()=> setIsLoading(false));
     }
 
     //SignInWithEmailAndPassword
 
     const handleLogin = event => {
         event.preventDefault();
+        setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
@@ -41,7 +42,8 @@ const useFirebase = () => {
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage)
-            });
+            })
+            .finally(()=> setIsLoading(false));
     }
 
     //Email and Password Registraion
@@ -110,25 +112,27 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
-                console.log(user)
             } else {
-                // User is signed out
-                // ...
+                setUser({})
             }
+            setIsLoading(false)
         });
+        return unsubscribed;
     }, [auth])
 
     const logOut = () => {
+        setIsLoading(true)
         signOut(auth).then(() => {
             setUser({})
         })
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage)
-            });
+            })
+            .finally(()=> setIsLoading(false));
 
     }
 
@@ -153,6 +157,7 @@ const useFirebase = () => {
 
     return {
         user,
+        isLoading,
         error,
         handleGoogleSignIn,
         handleNameChange,

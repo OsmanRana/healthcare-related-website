@@ -10,6 +10,7 @@ import AuthProvider from './authProvider/AuthProvider';
 import Footer from './components/Shared/Footer';
 import Experience from './components/Doctors/Experience';
 import Doctors from './components/Doctors/Doctors';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -25,12 +26,12 @@ function App() {
               <Route path='/home'>
                 <Home></Home>
               </Route>
-              <Route path='/doctors'>
+              <PrivateRoute path='/doctors'>
                 <Doctors></Doctors>
-              </Route>
-             <Route path='/doctorsdetail/:doctorId'>
+              </PrivateRoute>
+             <PrivateRoute path='/doctorsdetail/:doctorId'>
                <Experience></Experience>
-              </Route>
+              </PrivateRoute>
               <Route path='/login'>
                 <LogIn></LogIn>
               </Route>
