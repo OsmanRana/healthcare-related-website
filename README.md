@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+#Life Care Hospital
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site: https://life-care-hospital-private-ltd.web.app/
 
 ## Available Scripts
 
